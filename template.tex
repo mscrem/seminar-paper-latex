@@ -1,0 +1,107 @@
+% !TEX TS-program = xelatex
+\documentclass[12pt]{article}
+
+% Sprache english, ngerman
+\usepackage[ngerman]{babel}
+
+% Schriftart
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+% Zitate
+\usepackage[
+  backend=bibtex,
+  style=authoryear
+]{biblatex}
+\addbibresource{PATH/references.bib} % .bib datei verlinken
+% für Kurzzitate, wie Wittgenstein oder Aristoteles
+\DeclareCiteCommand{\shortcite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\printfield{shorttitle}}      % nur shorttitle
+  {\multicitedelim}
+  {\addspace\printfield{postnote}}
+\DeclareFieldFormat{postnote}{#1} %entfernt p. vor Seitenzahl
+
+% Seitenlayout
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2cm]{geometry}
+
+% Zeilenabstand 1,5
+\usepackage{setspace}
+\setstretch{1.5}
+
+% Absatzabstand statt Einzug
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.1\baselineskip}
+
+% Nummerierte Überschriften wie in Word
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsection.}{1em}{}
+
+% Inhaltsverzeichnis ab Seite 2, Seitenzahlen ab Seite 3
+\usepackage{fancyhdr}
+\usepackage{afterpage}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+
+% Seitenzahlen erst ab Seite 3 (Seite 1 und 2 ohne Nummer)
+\pagenumbering{gobble}
+
+\begin{document}
+
+% Titelseite (Seite 1)
+\begin{titlepage}
+  \centering
+  \vspace*{5cm}
+
+  {\Large Seminararbeit \par}
+  {\Huge\bfseries Titel \par}
+  \vspace{2cm}
+
+  {\Large LV-Titel \par}
+  {\Large Prof  \par}
+  {\Large Semester \par}
+
+  \vfill
+
+  {\Large Name \par}
+  {\Large Matrikelnummer \par}
+\end{titlepage}
+
+% Inhaltsverzeichnis (Seite 2)
+\tableofcontents
+\clearpage
+
+% Seitenzahlen ab hier beginnen
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Hier startet die eigentliche Arbeit
+% normales Zitat:  \parencite[Seite(n)]{bibtexeintrag}
+% shortform, z.B. Aristoteles: \shortcite[Stelle]{bibtexeintrag}
+\section{Einleitung}
+
+\clearpage
+
+
+\section{Überschrift}
+
+\subsection{Unterüberschrift}
+
+\clearpage
+
+
+\section{Schluss}
+
+\clearpage
+
+% Literaturverzeichnis
+\printbibliography[heading=bibintoc]
+\end{document}
+
