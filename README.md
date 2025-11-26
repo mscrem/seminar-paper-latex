@@ -12,3 +12,7 @@ Wichtig ist, dass in der .bib Datei dafür ein weiteres Attribut angegeben werde
 shorttitle = {Arist. De an.}
 
 Das Literaturverzeichnis wird dann automatisch auf Basis der zitierten Literatur erstellt.
+
+## Layout
+Das Layout wurde so gewählt, dass es den Einstellungen in Word gleicht. 
+Voreingestellt ist die Schriftart Times New Roman 12pt mit einem Zeilenabstand von 1,5 im Blocksatz.
